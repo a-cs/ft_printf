@@ -12,9 +12,37 @@
 
 #include "../include/ft_printf.h"
 
+static void	ft_print_functions(const char *str, va_list arg, int *pos)
+{
+	if(*str == 'c')
+		ft_percent_c(va_arg(arg, int), pos);
+	pos[0]++;
+}
+
 int	ft_printf(const char *str, ...)
 {
-	if(str)
-		return 1;
-	return 0;
+	int		*pos;
+	int		len;
+	va_list	arg;
+
+	va_start(arg, str);
+	pos = ft_calloc(2, sizeof(int));
+
+	while(str[pos[0]] != '\0')
+	{
+		if(str[pos[0]] == '%')
+		{
+			ft_print_functions(str + pos[0] + 1, arg, pos);
+		}
+		else
+		{
+			ft_putchar_fd(str[pos[0]], 1);
+			pos[1]++;
+		}
+		pos[0]++;
+	}
+	va_end(arg);
+	len = pos[1];
+	free(pos);
+	return len;
 }

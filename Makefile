@@ -25,6 +25,7 @@ INCLUDE = -I $(INCLUDE_DIR)
 
 SRC_DIR = ./src
 SRCS = ft_printf.c \
+		ft_percent_c.c \
 
 OBJ_DIR = ./objs
 OBJS := $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
