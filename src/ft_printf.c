@@ -16,6 +16,11 @@ static void	ft_print_functions(const char *str, va_list arg, int *pos)
 {
 	if(*str == 'c')
 		ft_percent_c(va_arg(arg, int), pos);
+	else if(*str == '%')
+	{
+		ft_putchar_fd('%', 1);
+		pos[1]++;
+	}
 	pos[0]++;
 }
 
