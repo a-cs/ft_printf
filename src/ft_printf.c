@@ -21,6 +21,8 @@ static void	ft_print_functions(const char *str, va_list arg, int *pos)
 		ft_putchar_fd('%', 1);
 		pos[1]++;
 	}
+	else if(*str == 's')
+		ft_percent_s(va_arg(arg, char *), pos);
 	pos[0]++;
 }
 
