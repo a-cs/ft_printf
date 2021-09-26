@@ -23,6 +23,8 @@ static void	ft_print_functions(const char *str, va_list arg, int *pos)
 	}
 	else if (*str == 's')
 		ft_percent_s(va_arg(arg, char *), pos);
+	else if (*str == 'd' || *str == 'i')
+		ft_percent_di(va_arg(arg, int), pos);
 	pos[0]++;
 }
 
