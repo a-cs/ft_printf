@@ -14,7 +14,7 @@
 
 void	ft_percent_s(char *arg, int *pos)
 {
-	if(!arg)
+	if (!arg)
 	{
 		ft_putstr_fd("(null)", 1);
 		pos[1] += 6;

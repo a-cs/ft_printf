@@ -14,14 +14,14 @@
 
 static void	ft_print_functions(const char *str, va_list arg, int *pos)
 {
-	if(*str == 'c')
+	if (*str == 'c')
 		ft_percent_c(va_arg(arg, int), pos);
-	else if(*str == '%')
+	else if (*str == '%')
 	{
 		ft_putchar_fd('%', 1);
 		pos[1]++;
 	}
-	else if(*str == 's')
+	else if (*str == 's')
 		ft_percent_s(va_arg(arg, char *), pos);
 	pos[0]++;
 }
@@ -34,10 +34,9 @@ int	ft_printf(const char *str, ...)
 
 	va_start(arg, str);
 	pos = ft_calloc(2, sizeof(int));
-
-	while(str[pos[0]] != '\0')
+	while (str[pos[0]] != '\0')
 	{
-		if(str[pos[0]] == '%')
+		if (str[pos[0]] == '%')
 		{
 			ft_print_functions(str + pos[0] + 1, arg, pos);
 		}
@@ -51,5 +50,5 @@ int	ft_printf(const char *str, ...)
 	va_end(arg);
 	len = pos[1];
 	free(pos);
-	return len;
+	return (len);
 }
