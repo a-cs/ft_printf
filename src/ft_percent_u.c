@@ -1,27 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_percent_u.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acarneir <acarneir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/18 15:58:24 by acarneir          #+#    #+#             */
-/*   Updated: 2021/09/18 15:58:24 by acarneir         ###   ########.fr       */
+/*   Created: 2021/09/27 17:35:48 by acarneir          #+#    #+#             */
+/*   Updated: 2021/09/27 17:35:48 by acarneir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../include/ft_printf.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
-# include "../libft/libft.h"
+void	ft_percent_u(unsigned int n, int *pos)
+{
+	int		c;
+	int		len;
+	char	digits[11];
 
-int		ft_printf(const char *str, ...);
-void	ft_percent_c(int arg, int *pos);
-void	ft_percent_s(char *arg, int *pos);
-void	ft_percent_di(int arg, int *pos);
-void	ft_percent_u(unsigned int n, int *pos);
-
-#endif
+	c = -1;
+	while (++c <= 10)
+	{
+		if (c > 0 && n == 0)
+			digits[c] = 'x';
+		else
+			digits[c] = n % 10 + '0';
+		n /= 10;
+	}
+	len = 0;
+	c = 10;
+	while (c >= 0)
+	{
+		if (digits[c] != 'x')
+		{
+			ft_putchar_fd(digits[c], 1);
+			len++;
+		}
+		c--;
+	}
+	pos[1] += len;
+}
