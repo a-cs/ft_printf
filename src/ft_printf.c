@@ -27,6 +27,10 @@ static void	ft_print_functions(const char *str, va_list arg, int *pos)
 		ft_percent_di(va_arg(arg, int), pos);
 	else if (*str == 'u')
 		ft_percent_u(va_arg(arg, unsigned int), pos);
+	else if (*str == 'x')
+		ft_percent_x(va_arg(arg, unsigned int), pos, 0);
+	else if (*str == 'X')
+		ft_percent_x(va_arg(arg, unsigned int), pos, 1);
 	pos[0]++;
 }
 
