@@ -24,5 +24,6 @@ void	ft_percent_s(char *arg, int *pos);
 void	ft_percent_di(int arg, int *pos);
 void	ft_percent_u(unsigned int n, int *pos);
 void	ft_percent_x(unsigned int n, int *pos, int is_upper);
+void	ft_percent_p(unsigned long long int n, int *pos);
 
 #endif

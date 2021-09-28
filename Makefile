@@ -30,6 +30,7 @@ SRCS = ft_printf.c \
 		ft_percent_di.c \
 		ft_percent_u.c \
 		ft_percent_x.c \
+		ft_percent_p.c \
 
 OBJ_DIR = ./objs
 OBJS := $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
